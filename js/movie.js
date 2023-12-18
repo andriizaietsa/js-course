@@ -58,15 +58,13 @@ const personalMovieDB = {
             k++;
             personalMovieDB.genres[k - 1] = prompt(`What genre do you like? its answer number ${k}`, "");
 
-            if (personalMovieDB.genres == '' || personalMovieDB.genres == null) {
+            if (personalMovieDB.genres[k - 1] == '' || personalMovieDB.genres[k - 1] == null) {
                 k--;
             }
         }
-    
-        // for (const [key, value] of personalMovieDB.genres){
-        //     console.log(`${key}: ${value}`);
-        // }
-
+        personalMovieDB.genres.forEach(function(item,i){
+            console.log(`Your favorite genre #${i+1} is ${item}`)
+        })
     },
     toggleVisibleMyDB: function () {
         if (personalMovieDB.private == false) {
@@ -78,5 +76,3 @@ const personalMovieDB = {
     }
 }
 
-personalMovieDB.writeYourGenres();
-personalMovieDB.showMyDB();
