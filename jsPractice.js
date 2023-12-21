@@ -1,82 +1,22 @@
-//1st
-const family = ['Peter', 'Ann', 'Alex', 'Linda'];
+const students = ['Peter', 'Andrew', 'Ann', 'Mark', 'Josh', 'Sandra', 'Cris', 'Bernard', 'Takesi', 'Sam'];
 
-function showFamily(arr) {
-    if (arr.length > 1) {
-        return "Семья состоит из: " + arr.join(" ");
+function sortStudentsByGroups(arr) {
+    //sorting
+    const sorting = arr.sort();
+
+    //split out to three teams
+    let teamArr = [];
+    let temp = [];
+    for (let i = 0; i < 9; i += 3) {
+        temp = sorting.slice(i, i + 3);
+        teamArr.push(temp);
     }
-    else{
-        return 'Семья пуста';
-    }
-
+    //get extra students 
+    let getExtraStudents = sorting.slice(9, arr.length);
+    let amountExtraStudents = getExtraStudents.toString();
+    console.log(amountExtraStudents);
+    teamArr.push('Оставшиеся студенты: ' + amountExtraStudents);
+    console.log(teamArr);
 }
-showFamily(family);
 
-//2nd
-const favoriteCities = ['liSBon', 'ROME', 'miLan', 'Dublin'];
-
-function standardizeStrings(arr) {
-    arr.forEach(function(item, i, arr){
-        return `${item.toLowerCase()}`
-    })
-}
-standardizeStrings(favoriteCities)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const personalPlanPeter = {
-//     name: "Peter",
-//     age: "29",
-//     skills: {
-//         languages: ['ru', 'eng'],
-//         programmingLangs: {
-//             js: '20%',
-//             php: '10%'
-//         },
-//         exp: '1 month'
-//     },
-//     showAgeAndLangs: function(){
-//         let age = personalPlanPeter.age;
-//         let result = "";
-//         for(let key in personalPlanPeter.skills.languages){
-//             result += personalPlanPeter.skills.languages[key] + " ";
-//         }
-//         let upperCaseResult = result.toLocaleUpperCase();
-//         return `Мне ${age} и я владею языками: ${upperCaseResult}`
-//     }
-// };
-// personalPlanPeter.showAgeAndLangs(personalPlanPeter)
-
-// function showProgrammingLangs(plan) {
-//     const arrObjects = Object.keys(plan.skills.programmingLangs)
-//     const number = arrObjects.length;
-//     if (number <= 0) {
-//         //return ""
-//         console.log("")
-//     }
-//     else {
-//         for (let key in plan.skills.programmingLangs) {
-//             let lang = key
-//             let percent = personalPlanPeter.skills.programmingLangs[key];
-//             //return `Язык ${lang} изучен на ${percent}`
-//             console.log(`Язык ${lang} изучен на ${percent}`);
-//         }
-//     }
-
-// }
-// showProgrammingLangs(personalPlanPeter)
+sortStudentsByGroups(students);
